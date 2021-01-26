@@ -1,0 +1,17 @@
+<h2 class="text-center">
+  Todo App
+</h2>
+<div class="container">
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="todo">
+      <button [disabled]="!todoForm.valid" type="submit" class="btn btn-primary">Summit</button>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <div *ngFor="let t of todos">
+    <h3 (click)="done(t)" [class.text-danger]="t.complete" >{{t.content}}</h3>
+  </div>
+</div>
